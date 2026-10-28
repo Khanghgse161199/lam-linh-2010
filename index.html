@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>Lam Linh • 20.10 — Nơi Này Có Anh</title>
+  <meta name="description" content="20/10 — Cột mốc đặc biệt dành tặng Lam Linh." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Ambient Blue & White Background Blobs -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==========================================
+       INTRO CARD
+       ========================================== -->
+  <div id="intro-overlay" class="intro-overlay">
+    <div class="intro-card">
+      <div class="intro-monogram-badge">
+        <span>20•10</span>
+      </div>
+
+      <div class="intro-date-pill">
+        <span class="intro-dot"></span>
+        <span>20.10 • DAY ONE</span>
+      </div>
+
+      <p class="intro-eyebrow">Dành tặng</p>
+      <h1 class="intro-name">Lam Linh</h1>
+      <p class="intro-sub-fun">
+        Một chút giai điệu Piano <em>“Nơi Này Có Anh”</em> cho ngày đặc biệt của tụi mình.
+      </p>
+
+      <button id="btn-open-experience" class="btn-enter">
+        <span>Mở trang &amp; Phát nhạc</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       STICKY HEADER
+       ========================================== -->
+  <header class="site-header">
+    <div class="nav-bar">
+      <a href="#hero" class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-serif">Lam Linh</span>
+        <span class="brand-date">20.10</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Điều hướng">
+        <a href="#hero" class="nav-link active">Giai điệu</a>
+        <a href="#anniversary" class="nav-link">Cột mốc 20.10</a>
+        <a href="#contract" class="nav-link">Góc nhỏ</a>
+        <a href="#moments" class="nav-link">Khoảnh khắc</a>
+        <a href="#note" class="nav-link">Lời nhắn</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="btn-toggle-music-Quick" class="btn-chip" title="Bật / Tắt nhạc">
+          <span class="eq-bars" id="nav-music-bars">
+            <i></i><i></i><i></i>
+          </span>
+          <span id="nav-music-label">Nơi Này Có Anh</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MAIN CONTENT
+       ========================================== -->
+  <main>
+    <!-- 1. HERO & UPBEAT TIKTOK PIANO PLAYER -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-layout">
+        <!-- Left: Clean, Modern & Natural Intro -->
+        <div class="hero-copy reveal-up">
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span data-editable="hero-tag">20.10.2026 • OFFICIAL DAY ONE</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span data-editable="hero-line-1">Chúc mừng ngày 20/10,</span>
+            <em data-editable="hero-line-2">Lam Linh.</em>
+          </h1>
+
+          <p class="hero-lead" data-editable="hero-desc">
+            Tháng Mười năm nay đáng nhớ hơn mọi năm — vừa là ngày 20/10 của riêng Lam Linh, vừa là ngày tụi mình chính thức bắt đầu một hành trình mới cùng nhau.
+          </p>
+
+          <div class="hero-bouquet-banner">
+            <div class="hb-icon-circle">20•10</div>
+            <div class="hb-text">
+              <strong data-editable="hb-title">Cột Mốc Đầu Tiên Của Tụi Mình</strong>
+              <span data-editable="hb-sub">Lưu giữ lại ngày 20/10 chính thức bước vào hành trình bên nhau.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Cobalt & Midnight Upbeat Piano Player Card -->
+        <div class="tiktok-player-card reveal-up">
+          <div class="player-top">
+            <div class="cover-art-wrap">
+              <img id="img-slot-hero" src="data/photo-1.jpg" alt="Lam Linh" />
+              <div class="cover-monogram hidden" id="placeholder-hero">20•10</div>
+            </div>
+
+            <div class="track-details">
+              <span class="track-mode-tag" id="audio-source-badge">UPBEAT PIANO • TIKTOK VER</span>
+              <h2 class="track-name">Nơi Này Có Anh (Piano)</h2>
+              <p class="track-sub">Playlist dành riêng cho Lam Linh</p>
+            </div>
+          </div>
+
+          <!-- Synced Lyrics Stage -->
+          <div class="apple-lyrics-stage">
+            <p class="lyric-line dim" id="lyric-prev">♪ Giai điệu Piano mở đầu...</p>
+            <p class="lyric-line active" id="lyric-current">Cầm tay anh, dựa vai anh, kề bên anh nơi này có anh...</p>
+            <p class="lyric-line dim" id="lyric-next">Khép đôi mi thật lâu, nguyện mãi bên cạnh nhau...</p>
+          </div>
+
+          <!-- Audio Waveform Visualizer -->
+          <div class="waveform-wrap">
+            <canvas id="piano-visualizer-canvas" width="600" height="38"></canvas>
+          </div>
+
+          <!-- Scrubber -->
+          <div class="player-scrubber">
+            <div class="progress-track" id="song-progress-bg">
+              <div class="progress-fill" id="song-progress-fill"></div>
+            </div>
+            <div class="time-row">
+              <span id="time-current">0:00</span>
+              <span id="time-total">2:11</span>
+            </div>
+          </div>
+
+          <!-- Controls & 3 Upbeat Track Modes -->
+          <div class="player-controls">
+            <div class="controls-left">
+              <button id="btn-play-pause" class="btn-play-main" aria-label="Phát hoặc Tạm dừng">
+                <span id="play-icon">▶</span>
+              </button>
+              <button id="btn-restart-song" class="btn-icon-subtle" title="Phát lại từ đầu">↺</button>
+            </div>
+
+            <div class="audio-mode-pills">
+              <button id="btn-track-upbeat" class="mode-pill active">Piano Vui Tươi</button>
+              <button id="btn-track-speedup" class="mode-pill">TikTok Speed-Up</button>
+              <button id="btn-track-gentle" class="mode-pill">Piano Dịu Dàng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. OFFICIAL 20.10 COUNTER & TIMELINE -->
+    <section id="anniversary" class="anniversary-section">
+      <div class="container">
+        <div class="section-head reveal-up">
+          <div>
+            <div class="eyebrow-tag">SINCE 20.10.2026</div>
+            <h2 class="section-title">Từ ngày <em>20 tháng 10</em></h2>
+          </div>
+
+          <div class="date-badge-btn">
+            <span>Ngày chính thức: <strong id="start-date-label">20/10/2026</strong></span>
+          </div>
+        </div>
+
+        <!-- 4-Column Live Counter -->
+        <div class="counter-grid reveal-up">
+          <div class="counter-cell">
+            <span class="counter-val" id="count-days">01</span>
+            <span class="counter-lbl">Ngày</span>
+          </div>
+          <div class="counter-cell">
+            <span class="counter-val" id="count-hours">00</span>
+            <span class="counter-lbl">Giờ</span>
+          </div>
+          <div class="counter-cell">
+            <span class="counter-val" id="count-minutes">00</span>
+            <span class="counter-lbl">Phút</span>
+          </div>
+          <div class="counter-cell">
+            <span class="counter-val" id="count-seconds">00</span>
+            <span class="counter-lbl">Giây</span>
+          </div>
+        </div>
+
+        <!-- 3 Natural Milestones -->
+        <div class="milestones-grid reveal-up">
+          <div class="milestone-card">
+            <span class="ms-index">01 / LÀM QUEN</span>
+            <h3 class="ms-title" data-editable="ms-1-title">Bắt trúng tần số</h3>
+            <p class="ms-desc" data-editable="ms-1-desc">
+              Từ những lần trò chuyện tình cờ, hai đứa dần tìm thấy sự thoải mái và hợp ý nhau lúc nào không hay.
+            </p>
+          </div>
+
+          <div class="milestone-card">
+            <span class="ms-index">02 / GẦN HƠN</span>
+            <h3 class="ms-title" data-editable="ms-2-title">Những buổi hẹn bình yên</h3>
+            <p class="ms-desc" data-editable="ms-2-desc">
+              Cùng đi ăn, đi dạo hay chỉ ngồi cạnh nhau kể đủ chuyện trong ngày cũng làm thời gian trôi qua thật nhanh.
+            </p>
+          </div>
+
+          <div class="milestone-card featured">
+            <span class="ms-index">03 / CỘT MỐC 20.10</span>
+            <h3 class="ms-title" data-editable="ms-3-title">Chính thức bên nhau</h3>
+            <p class="ms-desc" data-editable="ms-3-desc">
+              Ngày 20 tháng 10 — cột mốc tụi mình chính thức bước sang một chương mới. Cảm ơn Lam Linh vì đã ở đây.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. INTERACTIVE FUN QUESTION -->
+    <section id="contract" class="fun-contract-section">
+      <div class="container">
+        <div class="contract-card reveal-up">
+          <span class="contract-badge">QUICK QUESTION • 20.10</span>
+          <h2 class="contract-title" data-editable="contract-title">
+            Lam Linh đã sẵn sàng đồng hành cùng anh trong chặng đường sắp tới chưa?
+          </h2>
+          <p class="contract-desc" data-editable="contract-desc">
+            Một vài cam kết nho nhỏ dành cho em từ hôm nay:
+          </p>
+
+          <div class="contract-perks">
+            <span class="perk-pill" data-editable="perk-1">✓ Luôn lắng nghe và tôn trọng nhau</span>
+            <span class="perk-pill" data-editable="perk-2">✓ Cùng nhau đi ăn ngon và đi khắp nơi</span>
+            <span class="perk-pill" data-editable="perk-3">✓ Luôn nhường Lam Linh thắng mỗi khi tranh luận</span>
+            <span class="perk-pill" data-editable="perk-4">✓ Luôn có mặt mỗi khi em cần</span>
+          </div>
+
+          <div class="contract-actions" id="contract-actions-area">
+            <button id="btn-accept-love" class="btn-accept-love">
+              Đồng ý luôn
+            </button>
+            <button id="btn-runaway" class="btn-runaway">
+              Để suy nghĩ thêm...
+            </button>
+          </div>
+
+          <div id="contract-result" class="contract-result hidden">
+            Đã ghi nhận! Chúc cho hành trình từ ngày 20/10 của tụi mình luôn ngập tràn niềm vui.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PHOTO BENTO GRID -->
+    <section id="moments" class="moments-section">
+      <div class="container">
+        <div class="section-head reveal-up">
+          <div>
+            <div class="eyebrow-tag">MOMENTS</div>
+            <h2 class="section-title">Khoảnh khắc của <em>Lam Linh</em></h2>
+          </div>
+        </div>
+
+        <div class="film-grid">
+          <!-- Frame 01 -->
+          <div class="film-card reveal-up">
+            <div class="film-frame">
+              <img id="img-slot-gallery-1" src="data/photo-1.jpg" alt="Lam Linh 01" />
+              <div class="film-placeholder hidden" id="placeholder-gallery-1">
+                <span class="fp-num">FRAME • 01</span>
+                <p class="fp-quote">“Ngày 20/10 đáng nhớ”</p>
+              </div>
+            </div>
+            <div class="film-meta">
+              <span class="film-title" data-editable="gal-1-title">Ngày 20 tháng 10</span>
+              <span class="film-tag" data-editable="gal-1-sub">01 / 03</span>
+            </div>
+          </div>
+
+          <!-- Frame 02 -->
+          <div class="film-card reveal-up">
+            <div class="film-frame">
+              <img id="img-slot-gallery-2" src="data/photo-2.jpg" alt="Lam Linh 02" />
+              <div class="film-placeholder hidden" id="placeholder-gallery-2">
+                <span class="fp-num">FRAME • 02</span>
+                <p class="fp-quote">“Nụ cười rạng rỡ”</p>
+              </div>
+            </div>
+            <div class="film-meta">
+              <span class="film-title" data-editable="gal-2-title">Lam Linh</span>
+              <span class="film-tag" data-editable="gal-2-sub">02 / 03</span>
+            </div>
+          </div>
+
+          <!-- Frame 03 -->
+          <div class="film-card reveal-up">
+            <div class="film-frame">
+              <img id="img-slot-gallery-3" src="data/photo-3.jpg" alt="Lam Linh 03" />
+              <div class="film-placeholder hidden" id="placeholder-gallery-3">
+                <span class="fp-num">FRAME • 03</span>
+                <p class="fp-quote">“Nơi này có anh”</p>
+              </div>
+            </div>
+            <div class="film-meta">
+              <span class="film-title" data-editable="gal-3-title">Kỷ niệm</span>
+              <span class="film-tag" data-editable="gal-3-sub">03 / 03</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. WARM, NATURAL NOTE TO LAM LINH -->
+    <section id="note" class="note-section">
+      <div class="container">
+        <div class="note-card reveal-up">
+          <div class="note-header">
+            <span class="note-label">NOTE FOR LAM LINH</span>
+            <span class="note-label">20.10.2026</span>
+          </div>
+
+          <h2 class="note-salutation" data-editable="letter-salutation">Gửi Lam Linh,</h2>
+
+          <div class="note-body">
+            <p data-editable="letter-p1">
+              Anh tạo trang nhỏ này để lưu lại ngày 20/10 — một ngày vừa thuộc về riêng em, vừa là cột mốc đầu tiên của hai đứa.
+            </p>
+            <p data-editable="letter-p2">
+              Chúc Lam Linh ngày 20/10 và cả những ngày sắp tới luôn giữ được nụ cười rạng rỡ, tinh thần thoải mái và làm được mọi điều mình yêu thích.
+            </p>
+            <p data-editable="letter-p3">
+              Chặng đường phía trước, có chuyện gì vui hay mệt mỏi mình cùng chia sẻ với nhau nhé. Cảm ơn em vì đã đến.
+            </p>
+          </div>
+
+          <div class="note-footer">
+            <button id="btn-heart-stamp" class="btn-heart-minimal">
+              <span>♥ Gửi yêu thương</span>
+              <span>•</span>
+              <span id="heart-burst-count">2010</span>
+            </button>
+
+            <div class="note-sign">
+              <span data-editable="letter-sig-label">Tháng Mười, 2026</span>
+              <strong data-editable="letter-sig-name">Từ anh</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast-notification" class="toast-notification hidden" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Lam Linh • 20.10 — Nơi Này Có Anh</p>
+    </div>
+  </footer>
+
+  <script src="js/piano-engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
